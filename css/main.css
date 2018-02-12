@@ -1,4 +1,21 @@
-body {
+@font-face {
+  font-family: 'Flood Std';
+  src: url('../fonts/FloodStd.woff2?1518452010') format("woff2"), url('../fonts/FloodStd.woff?1518452010') format("woff"), url('../fonts/FloodStd.svg?1518452010#FloodStd') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Domus Titling';
+  src: url('../fonts/DomusTitlingWeb-Bold.woff2?1518453806') format("woff2"), url('../fonts/DomusTitlingWeb-Bold.woff?1518453806') format("woff"), url('../fonts/DomusTitlingWeb-Bold.svg?1518453806#DomusTitlingWeb-Bold') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Domine';
+  src: url('../fonts/Domine-Regular.woff2?1518454494') format("woff2"), url('../fonts/Domine-Regular.woff?1518454494') format("woff"), url('../fonts/Domine-Regular.svg?1518454494#DomusTitlingWeb-Bold') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}body {
   background-color: #303031;
 }
 
@@ -25,40 +42,136 @@ img {
 
 .card-wrap {
   position: absolute;
-  top: 50%;
+  top: 150px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  margin-bottom: 40px;
+  transform: translateX(-50%);
   max-width: 100%;
-  width: 500px;
+  width: 980px;
   padding: 10px;
-  text-align: center;
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0px 30px rgba(255, 255, 255, 0.4);
 }
 .card-wrap .inner {
-  padding: 30px;
+  padding: 40px 30px;
   border-radius: 20px;
   background-color: #fff;
 }
 .card-wrap h2 {
   margin: 0px 0px 20px;
-  font-family: Arial, Sans-Serif;
-  color: #007a6f;
-  font-size: 32px;
+  font-family: "Flood Std", Arial, Sans-serif;
+  color: #333;
+  font-size: 40px;
   font-weight: 600;
+  position: relative;
+  z-index: 2;
 }
 .card-wrap p {
-  font-family: Arial, Sans-Serif;
+  font-family: "Domine", Arial, Sans-serif;
   font-size: 17px;
-  margin: 0px 0px 15px;
-  color: #444;
+  margin: 0px 0px 30px;
+  color: #333;
+  line-height: 1.5em;
 }
-.card-wrap img {
+.card-wrap .person {
+  max-width: 100%;
+  width: 270px;
+  transform: rotate(8deg);
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  position: relative;
+  z-index: 1;
+}
+.card-wrap .logo {
+  position: absolute;
+  top: -120px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 27px 16px 9px 20px;
+  border: 4px solid #ccc;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s;
+  box-shadow: 0 0px 30px rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0px 30px rgba(255, 255, 255, 0);
+}
+.card-wrap .logo:hover {
+  border-color: #00a79d;
+  box-shadow: 0 0px 30px rgba(255, 255, 255, 0.3);
+  background-color: white;
+}
+.card-wrap .logo img {
   width: 60px;
   height: auto;
   display: block;
-  margin: 20px auto;
+  margin: 0px auto;
+}
+.card-wrap h3 {
+  font-family: "Domus Titling", Arial, Sans-serif;
+  margin: -20px 0px 30px;
+  font-size: 18px;
+  color: #00a79d;
+}
+.card-wrap a {
+  text-decoration: none;
+  outline: none;
+  color: #00a79d;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.card-wrap a:hover {
+  color: #007a6f;
+}
+.card-wrap a.btn {
+  color: #fff;
+  font-size: 18px;
+  font-family: "Domus Titling", Arial, Sans-serif;
+  background-color: #00a79d;
+  padding: 12px 60px 17px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1em;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.card-wrap a.btn:hover {
+  background-color: #007a6f;
+}
+.card-wrap .socials {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: 10px 30px;
+  display: block;
+}
+.card-wrap .socials li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.card-wrap .socials:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.card-wrap .socials li {
+  float: left;
+  margin: 5px 10px;
+}
+.card-wrap .socials li a {
+  transition: all 0.3s;
+  font-size: 20px;
+  transform: scale(1);
+  text-decoration: none;
+  display: block;
+}
+.card-wrap .socials li a:hover {
+  transform: scale(1.2);
 }
 
 @media (min-width: 501px) {
