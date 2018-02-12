@@ -42,7 +42,7 @@ img {
 
 .card-wrap {
   position: absolute;
-  top: 150px;
+  top: 130px;
   left: 50%;
   margin-bottom: 40px;
   transform: translateX(-50%);
@@ -86,7 +86,7 @@ img {
 }
 .card-wrap .logo {
   position: absolute;
-  top: -120px;
+  top: -110px;
   width: 90px;
   height: 90px;
   border-radius: 50%;
