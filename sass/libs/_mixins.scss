@@ -1,66 +1,107 @@
-@mixin nobullets {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
+//  USAGE: ============
+//
+//	@include mq-between(md, lg) { ... }
+//	Outputs:
+//	@media (min-width: 768px) and (max-width: 991px) { ... }
+//
+//	@include mq-below(md) { ... }
+//	Outputs:
+//	@media (max-width: 767px) { ... }
+//
+//	@include mq-above(md) { ... }
+//	Outputs:
+//	@media (min-width: 768px) { ... }
+//
+// ====================
 
-@mixin clear {
-	margin: 0;
-	padding: 0;
-}
+//
+//  MEDIA QUERIES
+//––––––––––––––––––––––––––––––––––––––––––––––––––
 
-@mixin center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-@mixin fontsize($size, $lg, $md, $sm) {
-	font-size: $size;
-	@media #{$large-only} {
-		font-size: $lg;
-	}
-	@media #{$medium-only} {
-		font-size: $md;
-	}
-	@media #{$small-only} {
-		font-size: $sm;
-	}
-}
-
-@mixin headingcolor($h1color, $h2color) {
-	h1 {
-		color: $h1color;
-	}
-	h2 {
-		color: $h2color;
-	}
-}
+// A map of breakpoints.
+$breakpoints: (
+	xxs: 0px, //could also be 320px - min device size
+	xs: 576px,
+	sm: 640px,
+	md: 768px,
+	lg: 992px,
+	xl: 1024px,
+	xxl: 1200px
+);
 
 
-@mixin nodrag {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none; 
-}
+//
+//  Media query ABOVE
+//––––––––––––––––––––––––––––––––––––––––––––––––––
 
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-	@if $inset {
-		-webkit-box-shadow:inset $top $left $blur $color;
-		-moz-box-shadow:inset $top $left $blur $color;
-		-ms-box-shadow:inset $top $left $blur $color;
-		-o-box-shadow:inset $top $left $blur $color;
-		box-shadow:inset $top $left $blur $color;
+// @include mq-above(sm) {}
+@mixin mq-above($breakpoint) {
+	// If the breakpoint exists in the map.
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Get the breakpoint value.
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+		// Write the media query.
+		@media (min-width: $breakpoint-value) {
+			@content;
+		}
+	// If the breakpoint doesn't exist in the map.
 	} @else {
-		-webkit-box-shadow: $top $left $blur $color;
-		-moz-box-shadow: $top $left $blur $color;
-		-ms-box-shadow: $top $left $blur $color;
-		-o-box-shadow: $top $left $blur $color;
-		box-shadow: $top $left $blur $color;
+		// Log a warning.
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
+}
+
+
+//
+//  Media query BELOW
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include mq-below(sm) {}
+@mixin mq-below($breakpoint) {
+	// If the breakpoint exists in the map.
+	@if map-has-key($breakpoints, $breakpoint) {
+		// Get the breakpoint value.
+		$breakpoint-value: map-get($breakpoints, $breakpoint);
+		// Write the media query.
+		@media (max-width: ($breakpoint-value - 1)) {
+			@content;
+		}
+	// If the breakpoint doesn't exist in the map.
+	} @else {
+		// Log a warning.
+		@warn 'Invalid breakpoint: #{$breakpoint}.';
+	}
+}
+
+
+//
+//  Media query BETWEEN
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+// @include mq-between(sm, md) {}
+@mixin mq-between($lower, $upper) {
+	// If both the lower and upper breakpoints exist in the map.
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		// Get the lower and upper breakpoints.
+		$lower-breakpoint: map-get($breakpoints, $lower);
+		$upper-breakpoint: map-get($breakpoints, $upper);
+		// Write the media query.
+		@media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+			@content;
+		}
+	
+	// If one or both of the breakpoints don't exist.
+	} @else {
+		// If lower breakpoint is invalid.
+		@if (map-has-key($breakpoints, $lower) == false) {
+			// Log a warning.
+			@warn 'Your lower breakpoint was invalid: #{$lower}.';
+		}
+		// If upper breakpoint is invalid.
+		@if (map-has-key($breakpoints, $upper) == false) {
+			// Log a warning.
+			@warn 'Your upper breakpoint was invalid: #{$upper}.';
+		}
 	}
 }
 
@@ -71,45 +112,75 @@
 	-o-#{$property}: $value;
 	#{$property}: $value;
 }
-
-@mixin iconize($code, $font: $fontIcon) {
-	// content: unquote("\"")+unquote(str-insert($code,"\\", 1))+unquote("\"");
-	content: $code;
-	font-family: $font;
-	font-style: normal;
-	font-weight: normal;
-	speak: none;
-	text-decoration: inherit;
-	text-align: center;
-	font-variant: normal;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-@mixin reset-filter() {
-	filter: unquote("progid:DXImageTransform.Microsoft.gradient(enabled=false)");
-}
-
-@mixin ie-filter($start, $end, $type) {
-	filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='" + $start + "', endColorstr='"+ $end +"', GradientType="+ $type +")");
-}
-
 @mixin clearlist {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    & li {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	& li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 }
 
 @mixin clearfloat {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin transition($params) {
+  -webkit-transition: $params;
+     -moz-transition: $params;
+   -khtml-transition: $params;
+       -o-transition: $params;
+          transition: $params;
+}
+
+@mixin scale($params) {
+  -webkit-transform: scale($params);
+     -moz-transform: scale($params);
+   -khtml-transform: scale($params);
+       -o-transform: scale($params);
+          transform: scale($params);
+}
+
+@mixin box-shadow($params) {
+  -webkit-box-shadow:$params;
+     -moz-box-shadow:$params;
+   -khtml-box-shadow:$params;
+       -o-box-shadow:$params;
+          box-shadow:$params;
+}
+
+@mixin rotate($params) {
+  -webkit-transform: rotate($params);
+     -moz-transform: rotate($params);
+   -khtml-transform: rotate($params);
+       -o-transform: rotate($params);
+          transform: rotate($params);
+}
+
+@mixin opacity($opacity) {
+  -webkit-opacity:$opacity;
+     -moz-opacity:$opacity;
+   -khtml-opacity:$opacity;
+       -o-opacity:$opacity;
+          opacity:$opacity;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+   -khtml-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin flex($width){
+  -ms-flex: 0 0 $width;
+  flex: 0 0 $width;
+  max-width: $width;
 }
