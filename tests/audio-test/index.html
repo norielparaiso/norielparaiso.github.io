@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>wavesurfer.js | Waveform using bars</title>
+		<!-- Bootstrap -->
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+		<!-- wavesurfer.js -->
+		<script src="wavesurfer.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div id="demo">
+				<div id="waveform">
+					<!-- Here be the waveform -->
+				</div>
+				<div class="controls">
+					<div class="row">
+						<div class="col-sm-7">
+							<button class="btn btn-primary" data-action="play">
+								<i class="glyphicon glyphicon-play"></i>
+								Play /
+								<i class="glyphicon glyphicon-pause"></i>
+								Pause
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row marketing">
+				<div id="demo-with-options">
+					<div id="waveform-with-options">
+						<!-- Here be the waveform -->
+					</div>
+					<div class="controls">
+						<button id="play-button" class="btn btn-primary">
+							<i class="glyphicon glyphicon-play"></i>
+							Play
+							/
+							<i class="glyphicon glyphicon-pause"></i>
+							Pause
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="demo2">
+	          <div id="waveform2"></div>
+	          <div class="controls">
+	              <button id="playBtn2" class="btn btn-primary">Play / Pause</button>
+	              <button id="toggleMuteBtn2" class="btn btn-primary">Toggle Mute</button>
+	              <button id="setMuteOnBtn2" class="btn btn-primary">
+	                  Mute <i class="glyphicon glyphicon-volume-off"></i>
+	              </button>
+	              <button id="setMuteOffBtn2" class="btn btn-primary">
+	                  Unmute <i class="glyphicon glyphicon-volume-up"></i>
+	              </button>
+	          </div>
+	      </div>
+		</div>
+		<script>
+			'use strict';
+			// Create an instance
+			let wavesurfer = {};
+			let wavesurferWithOptions;
+
+			// Init & load audio file
+			document.addEventListener('DOMContentLoaded', function() {
+				wavesurfer = WaveSurfer.create({
+					container: document.querySelector('#waveform'),
+					barWidth: 2,
+					barHeight: 1,
+					barGap: null
+				});
+
+				wavesurfer.on('error', function(e) {
+					console.warn(e);
+				});
+
+				// Load audio from URL
+				wavesurfer.load('demo.wav');
+
+				// Play button
+				const button = document.querySelector('[data-action="play"]');
+				button.addEventListener('click', wavesurfer.playPause.bind(wavesurfer));
+
+				// WaveSurfer with options example
+				wavesurferWithOptions = WaveSurfer.create({
+					container: document.querySelector('#waveform-with-options'),
+					barWidth: 2,
+					barHeight: 1,
+					barGap: null,
+					splitChannels: true,
+					splitChannelsOptions: {
+						overlay: false,
+						channelColors: {
+							0: {
+								progressColor: 'green',
+								waveColor: 'pink'
+							},
+							1: {
+								progressColor: 'orange',
+								waveColor: 'purple'
+							}
+						},
+						filterChannels: [],
+						relativeNormalization: true
+					}
+				});
+				wavesurferWithOptions.on('error', function(e) {
+					console.warn(e);
+				});
+				// Load audio from URL
+				wavesurferWithOptions.load('stereo.mp3');
+				// Play/pause on button press
+				document.getElementById('play-button').addEventListener('click', wavesurferWithOptions.playPause.bind(wavesurferWithOptions));
+			});
+		</script>
+		<script>
+			// Create an instance
+			let wavesurfer2;
+
+			// Init & load
+			document.addEventListener('DOMContentLoaded', function() {
+			    let playButton = document.querySelector('#playBtn2'),
+			        toggleMuteButton = document.querySelector('#toggleMuteBtn2'),
+			        setMuteOnButton = document.querySelector('#setMuteOnBtn2'),
+			        setMuteOffButton = document.querySelector('#setMuteOffBtn2');
+
+			    // Init wavesurfer
+			    wavesurfer2 = WaveSurfer.create({
+			        container: '#waveform2',
+			        waveColor: 'black'
+			    });
+
+			    wavesurfer2.on('error', function(e) {
+			        console.warn(e);
+			    });
+
+			    wavesurfer2.once('ready', function() {
+			        playButton.onclick = function() {
+			            wavesurfer2.playPause();
+			        };
+
+			        toggleMuteButton.onclick = function() {
+			            wavesurfer2.toggleMute();
+			        };
+
+			        setMuteOnButton.onclick = function() {
+			            wavesurfer2.setMute(true);
+			        };
+
+			        setMuteOffButton.onclick = function() {
+			            wavesurfer2.setMute(false);
+			        };
+			    });
+
+			    wavesurfer2.load('demo.wav');
+			});
+
+		</script>
+	</body>
+</html>
