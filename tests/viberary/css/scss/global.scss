@@ -1,0 +1,316 @@
+//sass --watch "css/scss/global.scss":"css/global.min.css" --style compressed --sourcemap=none
+
+@import 'libs/variables';
+@import 'libs/mixins';
+
+$sidebarW: 360px;
+
+body{
+	background: #fff;
+}
+img{
+	max-width: 100%;
+	height: auto;
+}
+.banner-wrap{
+	padding: 32px 16px 0;
+	@include mq-below(xxl){
+		padding: 24px 8px 0;
+	}
+	@include mq-below(md){
+		padding: 10px 0px;
+	}
+	.banner-frame{
+		text-align: center;
+	}
+	.logo-line{
+		padding: 32px 0;
+		background: #000;
+		@include mq-below(lg){
+			padding: 24px 0;
+		}
+		@include mq-below(md){
+			padding: 16px 0;
+			img{
+				width: 140px;
+			}
+		}
+	}
+	.herobanner-wrap{
+		padding: 0 54px;
+		position: relative;
+		@include mq-below(xxl){
+			padding: 0 40px;
+		}
+		@include mq-below(md){
+			padding: 0 15px;
+		}
+		&:before{
+			content: " ";
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 50%;
+			background: #000;
+			z-index: 1;
+		}
+		.caption{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: 3;
+			width: 100%;
+			text-align: center;
+			padding: 0px 16px;
+			h1, p{
+				color: #fff;
+			}
+			h1{
+				text-transform: uppercase;
+				font-family: $font_default;
+				line-height: 2em;
+				margin: 0px 0px 16px;
+				font-size: 45px;
+				font-weight: 400;
+				@include mq-below(xxl){
+					font-size: 32px;
+				}
+				@include mq-below(lg){
+					font-size: 28px;
+					line-height: 1.7em;
+				}
+				@include mq-below(md){
+					font-size: 24px;
+					line-height: 1.7em;
+				}
+				@include mq-below(sm){
+					font-size: 20px;
+				}
+				@media (max-width: 374px){
+					font-size: 16px;
+				}
+				.lg{
+					font-size: 74px;
+					font-weight: bold;
+					@include mq-below(xxl){
+						font-size: 54px;
+					}
+					@include mq-below(lg){
+						font-size: 32px;
+					}
+					@include mq-below(md){
+						font-size: 24px;
+					}
+					@media (max-width: 374px){
+						font-size: 18px;
+					}
+				}
+			}
+			p{
+				font-family: $font_default;
+				font-size: 24px;
+				@include mq-below(lg){
+					font-size: 20px;
+				}
+				@include mq-below(md){
+					font-size: 16px;
+				}
+				@include mq-below(sm){
+					font-size: 14px;
+				}
+			}
+		}
+		.scroll{
+			color: #fff;
+			position: absolute;
+			z-index: 3;
+			bottom: 100px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 54px;
+			transition: color 0.3s, bottom 0.3s;
+			&:hover{
+				bottom: 92px;
+				color: $yellow;
+			}
+			@include mq-below(md){
+				font-size: 32px;
+				bottom: 54px;
+				&:hover{
+					bottom: 46px;
+				}
+			}
+			@media (max-width: 374px){
+				font-size: 24px;
+				bottom: 40px;
+				&:hover{
+					bottom: 36px;
+				}
+			}
+		}
+	}
+	.hero-banner{
+		background: #000;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		position: relative;
+		z-index: 2;
+		margin-bottom: 54px;
+		overflow: hidden;
+		height: 830px;
+		@include mq-below(xxl){
+			height: 720px;
+		}
+		@include mq-below(md){
+			height: 640px;
+		}
+		@include mq-below(sm){
+			height: 520px;
+		}
+		@media (max-width: 374px){
+			height: 400px;
+		}
+		&:before{
+			content: " ";
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,0.35);
+			z-index: 1;
+		}
+		canvas{
+			z-index: 2;
+			opacity: 0.75;
+			position: relative;
+		}
+	}
+}
+.header-wrap{
+	position: sticky;
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+	.mainheader{
+		padding: 0px 16px;
+		.top-pane, .sbar-w{
+			padding-top: 16px;
+			padding-bottom: 16px;
+		} 
+	}
+}
+.search-box{
+	input[type="search"], input[type="text"]{
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			-webkit-appearance:none;
+		}
+		&::-ms-clear,
+		&::-ms-reveal{
+			display: none;
+			width: 0;
+			height: 0; 
+		}
+		@include css3(appearance,none);
+		@include css3(box-shadow, 0px 0px 10px -5px rgba(0,0,0,0));
+		outline: none;
+		background-color: $lightest_gray;
+		border: 1px solid $lightgray;
+		border-radius: 4px;
+		width: 100%;
+		color: #000;
+		transition: border-color 0.3s, box-shadow 0.3s;
+		border-radius: 0px;
+		padding: 12px 16px;
+		border-radius: 4px;
+		padding-left: 54px;
+		outline: none;
+		font-family: $font_default;
+		font-size: 16px;
+		&::-webkit-input-placeholder {
+			color:#aaa;
+		}
+		&::-moz-placeholder {
+			color:#aaa;
+		}
+		&:-ms-input-placeholder {
+			color:#aaa;
+		}
+		&:-moz-placeholder {
+			color:#aaa;
+		}
+		&:focus{
+			@include css3(box-shadow, 0px 0px 10px -5px rgba(0,0,0,0.2));
+			~ [type="submit"]{
+				.icon-search{
+					&:before{
+						color: rgba($yellow, 0.7);
+						&:hover{
+							color: rgba($yellow, 1);
+						}
+					}
+				}
+			}
+		}
+	}
+	.sfield{
+		position: relative;
+	}
+	input[type="submit"], button[type="submit"]{
+		position: absolute;
+		@include css3(appearance,none);
+		box-shadow: none;
+		border: 0px;
+		background: transparent;
+		outline: none;
+		color: #aaa;
+		transition: color 0.3s;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 12px;
+		font-size: 24px;
+		width: 32px;
+		height: 32px;
+		z-index: 2;
+		cursor: pointer;
+		&:hover{
+			color: $yellow;
+		}
+	}
+}
+.usp-line{
+	font-size: 16px;
+	color: #060606;
+	font-weight: 600;
+	font-family: $font-alt;
+}
+.top-pane{
+	box-shadow: 0px 8px 7px -7px rgba(0,0,0,0.3);
+	border-bottom: 1px solid #f1f1f1;
+	margin-right: -16px;
+	background-color: #fff;
+}
+.footer-wrap{
+	position: sticky;
+	bottom: 0px;
+	left: 0px;
+}
+.sbar-w{
+	@include mq-above(md){
+		max-width: 100%;
+		width: $sidebarW;
+		@include flex($sidebarW);
+	}
+}
+.content-wrap{
+	min-height: 100%;
+	min-height: 100vh;
+}
