@@ -23,8 +23,10 @@
 		<link rel="preconnect" href="https://cdn.jsdelivr.net/">
 		<link rel="preconnect" href="https://unpkg.com/">
 		<!-- fonts -->
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=block" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=block" rel="stylesheet">
+		<!-- range slider plugin for tempo -->
+		<link href="css/nouislider.min.css" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/grid.min.css">

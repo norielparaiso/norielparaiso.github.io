@@ -7,7 +7,7 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-auto flex-grow-1 my-auto top-pane">
+		<div class="col-auto flex-grow-1 top-pane">
 			<div class="row">
 				<div class="col-12 col-md-8 col-lg-9 my-auto">
 					<div class="search-box">

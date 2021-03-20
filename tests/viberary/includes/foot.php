@@ -1,4 +1,3 @@
-
 		</div>
 		<!-- icons init -->
 		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
