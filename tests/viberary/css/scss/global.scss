@@ -613,7 +613,7 @@ ul.d-flex{
 			}
 			.download-col{}
 			.song-row{
-				margin-bottom: 32px;
+				margin-bottom: 24px;
 				.title-col{
 					white-space: nowrap;
 					max-width: 100%;
@@ -691,6 +691,7 @@ ul.d-flex{
 								left: 0px;
 								border-radius: 100% 0 0 100% / 50% 0 0 50%;
 								transform-origin: right;
+								transition: transform 1s;
 							}
 							.left-mask{
 								position: absolute;
@@ -851,6 +852,7 @@ ul.d-flex{
 				left: 0px;
 				border-radius: 100% 0 0 100% / 50% 0 0 50%;
 				transform-origin: right;
+				transition: transform 1.2s;
 			}
 			.left-mask{
 				position: absolute;
@@ -1168,3 +1170,8 @@ ul.d-flex{
 		}
 	}
 }
+// wave{
+// 	canvas{
+// 		width: 100% !important;
+// 	}
+// }
