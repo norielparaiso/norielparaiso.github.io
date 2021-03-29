@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Viberary</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="robots" content="noindex" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+        <link rel="manifest" href="images/site.webmanifest">
+        <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#ffd300">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffd300">
+        <meta name="msapplication-config" content="images/browserconfig.xml">
+        <meta name="theme-color" content="#ffd300">
+
+        <!-- prefetch/preconnects -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net/">
+        <link rel="preconnect" href="https://unpkg.com/">
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=block" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=block" rel="stylesheet">
+        <!-- range slider plugin for tempo -->
+        <link href="css/nouislider.min.css" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/grid.min.css">
+        <link rel="stylesheet" href="css/global.min.css">
+    </head>
+    <body>
+        <div id="app" class="loading">
+            <div class="loader">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+            </div>
+
+<!-- Start main content -->
+    <!-- Header -->
+    <header id="top" class="header-wrap position-sticky">
+        <div class="container-fluid">
+            <div class="mainheader">
+    <div class="row">
+        <div class="col-12 d-block text-center d-lg-none my-auto usp-line-wrap">
+            <span class="usp-line m-0">BEST SOUNDS IN LIFE ARE FREE</span>
+        </div>
+        <div class="col-12 col-lg-auto sbar-w my-auto">
+            <div class="filter-btn d-lg-none d-flex">
+                <i data-feather="sliders" class="m-auto"></i>
+            </div>
+            <div class="vbry-logo">
+                <a href="#" class="d-inline-block">
+                    <img src="images/Logo.png" alt="Viberary" draggable="false" width="216" height="56">
+                </a>
+            </div>
+            <div class="search-btn d-lg-none d-flex">
+                <i data-feather="search" class="m-auto"></i>
+                <i data-feather="arrow-right" class="m-auto"></i>
+            </div>
+        </div>
+        <div class="col-12 col-lg-auto flex-grow-1 top-pane">
+            <div class="row">
+                <div class="col-12 d-none d-lg-block order-1 order-lg-2 col-lg-3 my-auto usp-line-wrap">
+                    <span class="usp-line m-0">BEST SOUNDS IN LIFE ARE FREE</span>
+                </div>
+                <div class="col-12 order-2 order-lg-1 col-lg-9 my-auto search-box-wrap">
+                    <div class="search-box">
+                        <form action="#" method="get">
+                            <div class="sfield">
+                                <input type="search" name="s" placeholder="Search Music">
+                                <button type="submit">
+                                    <i data-feather="search"></i>
+                                </button>
+                                <button class="cancel d-inline-block d-lg-none">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </header>
+    <!-- Header end-->
+    <section id="main" class="main-viewport">
+        <div class="subpage-banner py-4">
+            <div class="container-fluid">
+                <a href="index.php" class="back d-inline-block mb-4">
+                    <i data-feather="arrow-left"></i>
+                    Back
+                </a>
+            </div>
+            <div class="container">
+                <div class="vbry-player">
+                    <div class="d-flex justify-content-between">
+                        <div class="vbry-audio d-flex my-auto flex-grow-1">
+                            <div class="vbry-controls d-flex my-auto">
+                                <div class="my-auto">
+                                    <a href="#" class="pause-play mx-1 mx-md-2" id="mainPLayer">
+                                        <div class="pie-timer">
+                                            <div class="timer first-half">
+                                                <div class="left-mask"></div>
+                                                <div class="right-half"></div>
+                                                <div class="left-half spinner"></div>
+                                            </div>
+                                            <div class="disk"></div>
+                                        </div>
+                                        <ion-icon name="play-sharp"></ion-icon>
+                                        <ion-icon name="pause-sharp"></ion-icon>
+                                        <span class="sr-only">Play/Pause</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="my-auto mx-3 d-flex flex-grow-1">
+                                <div class="d-flex flex-grow-1 waveform-wrap">
+                                    <div class="vbry-playback flex-grow-1">
+                                        <div class="d-flex">
+                                            <div class="timestamp my-auto px-2">
+                                                <span id="seekTime">0:00</span>
+                                            </div>
+                                            <div class="vbry-wave flex-grow-1 px-2 text-center my-lg-auto my-2">
+                                                <!-- main player -->
+                                                <div id="waveform"></div>
+                                            </div>
+                                            <div class="length my-auto px-2">
+                                                <span id="endTime">0:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="audio-meta">
+                    <span class="title">Revolution Countdown Instrumental</span>
+                </div>
+            </div>
+        </div>
+        <div class="subpage-content content-wrap">
+            <!-- Content start -->
+            <div class="dl-info">
+                <div class="container">
+                    <div class="d-flex justify-content-center py-4 flex-wrap">
+                        <div class="my-auto py-2">
+                            <span class="tempo">Tempo: 120 BPM</span>
+                        </div>
+                        <div class="my-auto ml-md-auto py-2">
+                            <div class="trim d-flex justify-content-center flex-wrap">
+                                <div class="my-auto pb-2">
+                                    <a href="#" class="modal-btn">
+                                        Download
+                                        <i data-feather="download"></i>
+                                    </a>
+                                    <span class="d-inline-block px-2 mx-2">&bull;</span>
+                                </div>
+                                <div class="d-flex my-auto pb-2">
+                                    <div class="my-auto mx-2">
+                                        <a href="#" class="btn yellow-btn">
+                                            01:14
+                                        </a>
+                                    </div>
+                                    <div class="my-auto mx-2">
+                                        <a href="#" class="btn grey-btn">
+                                            02:78
+                                        </a>
+                                    </div>
+                                    <div class="my-auto mx-2">
+                                        <a href="#">
+                                            Select Length
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-4">
+                <div class="row no-gutters">
+                    <div class="col-12 pt-3">
+                        <p><strong>Tags</strong></p>
+                        <div class="row flex-wrap tag-cloud">
+                            <div class="col-auto">
+                                <a href="#" class="btn mb-3">Cinematic</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn mb-3">Inspirational</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn mb-3">Advertising</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn mb-3">Dramatic</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#" class="btn mb-3">Filmscore</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="license-lbl py-2 px-4 my-4 d-inline-block">
+                            <span class="px-2 d-inline-block">LICENSE</span>
+                        </div>
+                        <div class="text-center">
+                            <h4>FREE Licensing with attribution</h4>
+                            <div class="copy-attr my-4">
+                                <span class="value">
+                                    Music by Vibrary.com:
+                                    http://viberary.com/revolution-countdown-instrumental
+                                </span>
+                                <button class="copy-btn">
+                                    Copy and attribute
+                                    <i data-feather="copy"></i>
+                                </button>
+                            </div>
+                            <p class="note mb-4 pb-4">Copy and paste this on your project description or credits section</p>
+                        </div>
+                        <div class="white-box p-4">
+                            <div class="py-2 px-4">
+                                <p class="mb-4">You are free this track for the following purposes, provided that you credit Viberary.com using the attribution shown above.</p>
+                                <ul class="green-checklist mb-2 py-4">
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Personal use (e.g. Vlog, Slideshow, School project)
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Commercial use (e.g. Brand explainer video)
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Podcast
+                                        </span>
+                                    </li>
+                                </ul>
+                                <p class="mb-4">You are not allowed to:</p>
+                                <ul class="red-checklist mb-2 py-2">
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Distribute or share track itself
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Upload the track to other then claim ownership
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Modify (e.g. remix) track, then claim ownership
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Commercial use (e.g. Brand explainer video)
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet">
+                                            <i data-feather="check"></i>
+                                        </span>
+                                        <span>
+                                            Use in a project with contents that promote illegal, abusive or harmful activities
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Content end -->
+        </div>
+        <div class="subpage-footer">
+            <div class="container">
+                <footer id="mainFooter">
+                     <div class="px-md-4 mx-md-4">
+                        <div class="d-flex footer-menu justify-content-center mb-2 flex-wrap">
+                            <a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Home</a>
+                            <a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">About</a>
+                            <a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Blogs</a>
+                            <a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Contact Us</a>
+                        </div>
+                        <div class="bottom-links d-md-flex my-4 justify-content-between flex-wrap text-center">
+                            <div class="order-1 order-md-2 mb-4 mb-md-auto mt-md-auto px-1 pb-3 mx-auto">
+                                <div class="row justify-content-center">
+                                    <div class="col-auto">
+                                        <a href="#">License Terms</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#">Privacy Policy</a>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a href="#">Terms of Use</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="order-2 order-md-1 my-auto pb-3 px-1 mx-auto">Viberary.com All Rights Reserved. Copyright &copy; 2021</p>
+                        </div>
+                     </div>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal hidden">
+        <div class="container">
+            <div class="body">
+                <div class="text-right">
+                    <a href="#" class="close-modal mb-4">
+                        <i data-feather="x"></i>
+                        <span class="sr-only">Close</span>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <div class="px-4">
+                        <h3 class="mb-4">
+                            GREAT! You finally found the right track for you.
+                        </h3>
+                        <p class="mb-4">Before you proceed to download, we are just a bit curious where you'll use it.</p>
+                        <div class="px-2 px-lg-4 text-left mx-auto" style="max-width: 650px;">
+                            <form action="#">
+                                <div class="mb-4">
+                                    <label for="personal_use" class="radio">
+                                        <div class="item-radio">
+                                            <input id="personal_use" type="radio" name="use" value="For Personal Use">
+                                            <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                                <circle cx="10" cy="10" r="9"></circle>
+                                                <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+                                                <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="radio-label pl-2">
+                                            Personal use (e.g. Vlog, slideshow, School project)
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="commercial_use" class="radio">
+                                        <div class="item-radio">
+                                            <input id="commercial_use" type="radio" name="use" value="For Commercial Use">
+                                            <svg width="20px" height="20px" viewBox="0 0 20 20">
+                                                <circle cx="10" cy="10" r="9"></circle>
+                                                <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+                                                <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="radio-label pl-2">
+                                            Commercial use (e.g. Advertisement, Brand explainer video)
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="px-md-4 pt-1">
+                                    <div class="mb-3">
+                                        <input type="text" name="full_name" placeholder="Enter Full Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="text" name="company_name" placeholder="Enter Company Name">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="email" name="full_email" placeholder="Enter Company Email">
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn yellow-btn submit px-4 mb-2" type="submit">DOWNLOAD</button>
+                                        <p class="note mb-4 py-2">By clicking Download, you agree to our License Terms.</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/wavesurfer.js" defer></script>
+    <script src="js/wavesurfer.minimap.js" defer></script>
+    <!-- audio waveform -->
+    <script>
+        //https://davidwalsh.name/javascript-debounce-function
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+    </script>
+<!-- End main content -->
+    <script>
+        // Remove loader demo
+        document.getElementById("app").classList.remove("loading");
+    </script>
+        <script>
+        'use strict';
+        // Create an instance
+        let wavesurfer = {};
+        let demo1 = {}, demo2 = {}, demo3 = {}, demo4 = {}, demo5 = {}, demo6  = {};
+
+        // Init & load audio file
+        document.addEventListener('DOMContentLoaded', function() {
+            wavesurfer = WaveSurfer.create({
+                container: '#waveform',
+                barWidth: 2,
+                barHeight: 1.6,
+                barGap: null,
+                waveColor: '#ebebeb',
+                progressColor: '#ffd300',
+                cursorColor: '#fff0',
+                height: 60
+            });
+            wavesurfer.on('error', function(e) {
+                console.warn(e);
+            });
+            function timeFormat(flt){
+                var min = parseInt(flt/60),
+                     sec = parseInt(flt%60) < 10 ? "0"+parseInt(flt%60) : parseInt(flt%60).toString();
+                return min+":"+sec;
+            }
+            // Load audio from URL
+            wavesurfer.load('demo-files/audio/stereo.mp3');
+            wavesurfer.on("ready",function(){
+                document.getElementById("endTime").textContent = timeFormat(wavesurfer.getDuration());
+            });
+
+            // refresh width - responsive fix
+            var debouncedRefreshWave = debounce(function() {
+                // console.log("hit!");
+                wavesurfer.drawBuffer();
+            }, 300);
+            window.addEventListener('resize', debouncedRefreshWave);
+            // Play control
+            document.getElementById("mainPLayer").addEventListener("click",function(e){
+                e.preventDefault();
+                this.classList.toggle("playing");
+                wavesurfer.playPause();
+            });
+            // waveform interraction
+            var playbackTimeout;
+            function refreshPie(thisPie, wavesurfObj){
+                setTimeout(function(){
+                    var curTime = wavesurfObj.getCurrentTime(),
+                         endTime = wavesurfObj.getDuration(),
+                         spinnerAngle = (curTime/endTime)*360;
+                    // console.log(curTime + " vs "+ endTime);
+                    thisPie.querySelector(".spinner").style.transform = "rotate("+spinnerAngle+"deg)";
+                    if(spinnerAngle > 180){
+                        thisPie.querySelector(".timer").classList.remove("first-half");
+                    }else{
+                        thisPie.querySelector(".timer").classList.add("first-half");
+                    }
+                    document.getElementById("seekTime").textContent = timeFormat(curTime+0.3); //intervals at .3 sec
+                },300);
+            }
+            wavesurfer.on("interaction", function(){
+                // console.log("seek");
+                refreshPie(document.getElementById("mainPLayer"), wavesurfer);
+                if(wavesurfer.isPlaying()){
+                    document.getElementById("mainPLayer").classList.add("playing");
+                    clearInterval(playbackTimeout);
+                    playbackTimeout = setInterval(function(){
+                        refreshPie(document.getElementById("mainPLayer"), wavesurfer);
+                    },1000);
+                }else{
+                    clearInterval(playbackTimeout);
+                    document.getElementById("mainPLayer").classList.remove("playing")
+                }
+            });
+            wavesurfer.on("play", function(){
+                // console.log("play");
+                refreshPie(document.getElementById("mainPLayer"), wavesurfer);
+                document.getElementById("mainPLayer").classList.add("playing");
+                clearInterval(playbackTimeout);
+                playbackTimeout = setInterval(function(){
+                    refreshPie(document.getElementById("mainPLayer"), wavesurfer);
+                },500);
+            });
+            wavesurfer.on("finish", function(){
+                // console.log("finished");
+                clearInterval(playbackTimeout);
+                document.getElementById("mainPLayer").classList.remove("playing");
+            });
+
+            var modal = document.querySelector(".modal");
+            var container = modal.querySelector(".container");
+            document.querySelector(".modal-btn").addEventListener("click", function (e){
+                e.preventDefault();
+                document.body.classList.add("prevent-scroll");
+                modal.classList.remove("hidden")
+            });
+            document.querySelector(".modal").addEventListener("click", function (e) {
+                if (e.target !== modal && e.target !== container) return;
+                    modal.classList.add("hidden");
+                    document.body.classList.remove("prevent-scroll");
+            });
+            document.querySelector(".close-modal").addEventListener("click", function (e){
+                e.preventDefault();
+                modal.classList.add("hidden");
+                document.body.classList.remove("prevent-scroll");
+            });
+        });
+    </script>
+
+        </div>
+        <!-- icons init -->
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js" defer></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js" defer></script>
+        <script>
+            window.addEventListener('load',function(e){
+                feather.replace();
+            });
+        </script>
+    </body>
+</html>

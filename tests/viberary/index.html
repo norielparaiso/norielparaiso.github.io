@@ -14,6 +14,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 		<link rel="manifest" href="images/site.webmanifest">
+		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#ffd300">
 		<link rel="shortcut icon" href="images/favicon.ico">
 		<meta name="msapplication-TileColor" content="#ffd300">
 		<meta name="msapplication-config" content="images/browserconfig.xml">
@@ -34,10 +35,18 @@
 		<link rel="stylesheet" href="css/global.min.css">
 	</head>
 	<body>
-		<div id="app">
+		<div id="app" class="loading">
+			<div class="loader">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+				<div class="bar4"></div>
+				<div class="bar5"></div>
+				<div class="bar6"></div>
+			</div>
 
 <!-- Start main content -->
-	<div class="container-fluid">
+	<div class="container-fluid homepage-banner">
 		<!-- Homepage Banner -->
 		<div class="banner-wrap">
 			<div class="banner-frame">
@@ -72,16 +81,29 @@
 		<div class="container-fluid">
 			<div class="mainheader">
 	<div class="row">
-		<div class="col-auto sbar-w my-auto">
+		<div class="col-12 d-block text-center d-lg-none my-auto usp-line-wrap">
+			<span class="usp-line m-0">BEST SOUNDS IN LIFE ARE FREE</span>
+		</div>
+		<div class="col-12 col-lg-auto sbar-w my-auto">
+			<div class="filter-btn d-lg-none d-flex">
+				<i data-feather="sliders" class="m-auto"></i>
+			</div>
 			<div class="vbry-logo">
 				<a href="#" class="d-inline-block">
 					<img src="images/Logo.png" alt="Viberary" draggable="false" width="216" height="56">
 				</a>
 			</div>
+			<div class="search-btn d-lg-none d-flex">
+				<i data-feather="search" class="m-auto"></i>
+				<i data-feather="arrow-right" class="m-auto"></i>
+			</div>
 		</div>
-		<div class="col-auto flex-grow-1 top-pane">
+		<div class="col-12 col-lg-auto flex-grow-1 top-pane">
 			<div class="row">
-				<div class="col-12 col-md-8 col-lg-9 my-auto">
+				<div class="col-12 d-none d-lg-block order-1 order-lg-2 col-lg-3 my-auto usp-line-wrap">
+					<span class="usp-line m-0">BEST SOUNDS IN LIFE ARE FREE</span>
+				</div>
+				<div class="col-12 order-2 order-lg-1 col-lg-9 my-auto search-box-wrap">
 					<div class="search-box">
 						<form action="#" method="get">
 							<div class="sfield">
@@ -89,12 +111,12 @@
 								<button type="submit">
 									<i data-feather="search"></i>
 								</button>
+								<button class="cancel d-inline-block d-lg-none">
+									<i data-feather="x"></i>
+								</button>
 							</div>
 						</form>
 					</div>
-				</div>
-				<div class="col-12 col-md-4 col-lg-3 my-auto">
-					<h4 class="usp-line m-0">BEST SOUNDS IN LIFE ARE FREE</h4>
 				</div>
 			</div>
 		</div>
@@ -106,9 +128,9 @@
 	<section id="main" class="main-viewport">
 		<div class="container-fluid content-wrap p-0">
 			<!-- Content start -->
-			<div class="row no-gutters">
-				<div class="col-auto sbar-w">
-					<div class="vbry-filters position-sticky">
+			<div class="row no-gutters flex-no-wrap">
+				<div class="d-lg-flex col-auto sbar-w">
+					<div class="vbry-filters position-sticky w-100">
 						<div class="filter-lbl">
 							<i data-feather="sliders"></i>
 							Filter By
@@ -179,9 +201,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-auto flex-grow-1">
-					<div class="content-wrap-inner d-flex flex-column justify-content-between">
-						<div class="vbry-playlist">
+				<div class="col-12 col-lg-auto flex-grow-1">
+					<div class="content-wrap-inner flex-wrap d-flex flex-column justify-content-between">
+						<div class="vbry-playlist vinyl-grp-wrap playing">
 							<div class="playlist-wrap">
 								<div class="row">
 									<div class="col-12 col-lg-6">
@@ -197,9 +219,10 @@
 													25 Songs
 												</span>
 												&bull;
-												<span class="d-inline-block pl-2">
+												<span class="d-inline-block pl-2 pr-3">
 													2 hrs 56 min
 												</span>
+												<a href="#" class="play-all">PLAY ALL <ion-icon name="play-sharp"></ion-icon></a>
 											</div>
 										</div>
 									</div>
@@ -215,20 +238,20 @@
 								</div>
 								<div class="play-table">
 									<div class="heading d-flex">
-										<div class="title-col">
+										<div class="title-col px-1">
 											<span>TITLE</span>
 										</div>
-										<div class="duration-col">
+										<div class="duration-col px-1">
 											<span>DURATION</span>
 										</div>
-										<div class="tempo-col">
+										<div class="tempo-col px-1">
 											<span>TEMPO</span>
 										</div>
 									</div>
 									<div class="queue">
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -241,30 +264,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
-													<span>Change of Heart</span>
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
+													<span>Change of Heart Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Quos nisi nostrum voluptates reiciendis ratione repellat similique quia soluta enim libero officiis quidem voluptatibus commodi delectus autem doloremque repellendus, minus vel.</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample1"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -277,30 +301,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -313,30 +338,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -349,30 +375,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample2"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -385,30 +412,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample5"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -421,30 +449,31 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample3"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 										<div class="song-row d-flex">
-											<div class="play-col my-auto">
-												<a href="#" class="pause-play mx-2">
+											<div class="play-col px-1 my-auto">
+												<a href="#" class="pause-play mx-lg-2">
 													<div class="pie-timer">
 														<div class="timer first-half">
 															<div class="left-mask"></div>
@@ -457,45 +486,46 @@
 													<ion-icon name="pause-sharp"></ion-icon>
 												</a>
 											</div>
-											<div class="title-col my-auto">
-												<a href="#">
+											<div class="title-col px-1 my-auto">
+												<a href="#" class="title">
 													<span>Change of Heart</span>
+													<span class="title-label d-block d-lg-none">Inspirational</span>
 												</a>
 											</div>
-											<div class="duration-col my-auto">
+											<div class="duration-col px-1 my-auto">
 												<span>3:00</span>
 											</div>
-											<div class="tempo-col my-auto">
+											<div class="tempo-col px-1 my-auto">
 												<span>20 bpm</span>
 											</div>
-											<div class="preview-col flex-grow-1 my-auto mx-4">
+											<div class="preview-col flex-grow-1 my-auto mx-lg-4">
 												<div id="minimap_sample4"></div>
 											</div>
-											<div class="download-col my-auto mx-2">
+											<div class="download-col my-auto mx-lg-2">
 												<a href="#" class="dl-link">
-													<i data-feather="download"></i>
 													<span class="sr-only">Download</span>
+													<i data-feather="download"></i>
 												</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="pagination my-4 py-4">
+							<div class="pagination my-4 py-md-4">
 								<ul class="d-flex justify-content-center mx-auto my-2 pb-4">
-									<li class="mx-3">
+									<li class="mx-1 mx-sm-2 mx-md-3">
 										<a href="#" class="prev">
 											<i data-feather="chevron-left"></i>
 											<span class="sr-only">Previous</span>
 										</a>
 									</li>
-									<li class="mx-3"><a href="#" class="active">01</a></li>
-									<li class="mx-3"><a href="#">02</a></li>
-									<li class="mx-3"><a href="#">03</a></li>
-									<li class="mx-3"><a href="#">04</a></li>
-									<li class="mx-3"><span>&hellip;</span></li>
-									<li class="mx-3"><a href="#">20</a></li>
-									<li class="mx-3">
+									<li class="mx-1 mx-sm-2 mx-md-3"><a href="#" class="active">01</a></li>
+									<li class="mx-1 mx-sm-2 mx-md-3"><a href="#">02</a></li>
+									<li class="mx-1 mx-sm-2 mx-md-3"><a href="#">03</a></li>
+									<li class="mx-1 mx-sm-2 mx-md-3"><a href="#">04</a></li>
+									<li class="mx-1 mx-sm-2 mx-md-3"><span>&hellip;</span></li>
+									<li class="mx-1 mx-sm-2 mx-md-3"><a href="#">20</a></li>
+									<li class="mx-1 mx-sm-2 mx-md-3">
 										<a href="#" class="next">
 											<i data-feather="chevron-right"></i>
 											<span class="sr-only">Next</span>
@@ -505,26 +535,28 @@
 							</div>
 						</div>
 						<footer id="mainFooter">
-							 <div class="px-4 mx-4">
-							 	<div class="d-flex footer-menu justify-content-center mb-2">
-							 		<a href="#" class="mx-4 px-4 mb-2">Home</a>
-							 		<a href="#" class="mx-4 px-4 mb-2">About</a>
-							 		<a href="#" class="mx-4 px-4 mb-2">Blogs</a>
-							 		<a href="#" class="mx-4 px-4 mb-2">Contact Us</a>
+							 <div class="px-md-4 mx-md-4">
+							 	<div class="d-flex footer-menu justify-content-center mb-2 flex-wrap">
+							 		<a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Home</a>
+							 		<a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">About</a>
+							 		<a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Blogs</a>
+							 		<a href="#" class="mx-2 mx-md-4 px-md-4 mb-2">Contact Us</a>
 							 	</div>
-							 	<div class="d-flex my-4 justify-content-between flex-wrap text-center">
-							 		<p>Viberary.com All Rights Reserved. Copyright &copy; 2021</p>
-							 		<div class="row">
-							 			<div class="col-auto">
-							 				<a href="#">License Terms</a>
-							 			</div>
-							 			<div class="col-auto">
-							 				<a href="#">Privacy Policy</a>
-							 			</div>
-							 			<div class="col-auto">
-							 				<a href="#">Terms of Use</a>
-							 			</div>
-							 		</div>
+							 	<div class="bottom-links d-md-flex my-4 justify-content-between flex-wrap text-center">
+							 		<div class="order-1 order-md-2 mb-4 mb-md-auto mt-md-auto px-1 pb-3 mx-auto">
+								 		<div class="row justify-content-center">
+								 			<div class="col-auto">
+								 				<a href="#">License Terms</a>
+								 			</div>
+								 			<div class="col-auto">
+								 				<a href="#">Privacy Policy</a>
+								 			</div>
+								 			<div class="col-auto">
+								 				<a href="#">Terms of Use</a>
+								 			</div>
+								 		</div>
+								 	</div>
+							 		<p class="order-2 order-md-1 my-auto pb-3 px-1 mx-auto">Viberary.com All Rights Reserved. Copyright &copy; 2021</p>
 							 	</div>
 							 </div>
 						</footer>
@@ -534,7 +566,7 @@
 			<!-- Content end -->
 		</div>
 		<!-- Footer -->
-		<footer id="bottom" class="footer-wrap position-sticky">
+		<footer id="bottom" class="footer-wrap position-sticky player-ready">
 			<div class="container-fluid">
 				<div class="stickyfooter">
 	<div class="vbry-player">
@@ -542,13 +574,13 @@
 			<div class="vbry-audio d-flex my-auto flex-grow-1">
 				<div class="vbry-controls d-flex my-auto">
 					<div class="my-auto">
-						<a href="#" class="prev mx-2">
+						<a href="#" class="prev mx-1 mx-md-2">
 							<ion-icon name="play-skip-back-sharp"></ion-icon>
 							<span class="sr-only">Back</span>
 						</a>
 					</div>
 					<div class="my-auto">
-						<a href="#" class="pause-play mx-2" id="mainPLayer">
+						<a href="#" class="pause-play mx-1 mx-md-2" id="mainPLayer">
 							<div class="pie-timer">
 								<div class="timer first-half">
 									<div class="left-mask"></div>
@@ -563,46 +595,117 @@
 						</a>
 					</div>
 					<div class="my-auto">
-						<a href="#" class="next mx-2">
+						<a href="#" class="next mx-1 mx-md-2">
 							<ion-icon name="play-skip-forward-sharp"></ion-icon>
 							<span class="sr-only">forward</span>
 						</a>
 					</div>
 				</div>
-				<div class="audio-meta my-auto mx-4">
+				<div class="audio-meta my-auto mx-sm-3 mx-1">
 					<span class="title">Revolution Countdown Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime repellat quos accusamus quae exercitationem quisquam, quidem nobis at, delectus mollitia quibusdam atque voluptatum porro dolore possimus suscipit. Similique, distinctio, excepturi!</span>
 					<span class="sub">Cinematic</span>
 				</div>
-				<div class="vbry-playback my-auto mx-3 d-flex flex-grow-1">
-					<div class="timestamp my-auto mx-1">
-						<span id="seekTime">0:00</span>
-					</div>
-					<div class="vbry-wave flex-grow-1 mx-1 text-center">
-						<div id="waveform"></div>
-					</div>
-					<div class="length my-auto mx-1 text-right">
-						<span id="endTime">0:00</span>
-					</div>
-				</div>
-				<div class="vrby-vol my-auto d-flex">
-					<div class="vrby-mute my-auto mx-2">
-						<a href="#" class="volume high" id="volumeCtr">
-							<i data-feather="volume"></i>
-							<i data-feather="volume-1"></i>
-							<i data-feather="volume-2"></i>
-							<i data-feather="volume-x"></i>
-							<span class="sr-only">Mute</span>
+				<div class="track-preview my-auto mx-3 d-flex flex-grow-1">
+					<div class="mx-auto">
+						<a href="#" id="closePreview" class="py-2 mb-4">
+							<span class="sr-only">Close</span>
+							<i data-feather="chevron-down"></i>
 						</a>
 					</div>
-					<div class="volslider my-auto mx-2 px-3">
-						<input type="range" min="1" max="100" value="80" class="slider" id="volRange">
+					<div class="vinyl-grp-wrap playing mx-auto w-100">
+						<div class="vinyl-grp">
+							<div class="vinyl-img">
+								<img src="images/disk.png" width="320" height="320" alt="album cover" loading="lazy" draggable="false">
+							</div>
+						</div>
+					</div>
+					<div class="d-flex flex-grow-1 waveform-wrap">
+						<div class="vbry-playback flex-grow-1">
+							<div class="d-flex">
+								<div class="timestamp my-auto px-2">
+									<span id="seekTime">0:00</span>
+								</div>
+								<div class="vbry-wave flex-grow-1 px-2 text-center my-lg-auto my-2">
+									<!-- main player -->
+									<div id="waveform"></div>
+									<!-- other waves in playlist -->
+									<div class="d-none" id="waveform_sample1"></div>
+									<div class="d-none" id="waveform_sample"></div>
+									<div class="d-none" id="waveform_sample2"></div>
+									<div class="d-none" id="waveform_sample5"></div>
+									<div class="d-none" id="waveform_sample3"></div>
+									<div class="d-none" id="waveform_sample4"></div>
+								</div>
+								<div class="length my-auto px-2">
+									<span id="endTime">0:00</span>
+								</div>
+							</div>
+						</div>
+						<div class="vbry-controls d-flex my-2 mx-auto justify-content-center">
+							<div class="my-auto">
+								<a href="#" class="prev mx-1 mx-md-2">
+									<ion-icon name="play-skip-back-sharp"></ion-icon>
+									<span class="sr-only">Back</span>
+								</a>
+							</div>
+							<div class="my-auto">
+								<a href="#" class="pause-play mx-1 mx-md-2" id="mainPLayer">
+									<div class="pie-timer">
+										<div class="timer first-half">
+											<div class="left-mask"></div>
+											<div class="right-half"></div>
+											<div class="left-half spinner"></div>
+										</div>
+										<div class="disk"></div>
+									</div>
+									<ion-icon name="play-sharp"></ion-icon>
+									<ion-icon name="pause-sharp"></ion-icon>
+									<span class="sr-only">Play/Pause</span>
+								</a>
+							</div>
+							<div class="my-auto">
+								<a href="#" class="next mx-1 mx-md-2">
+									<ion-icon name="play-skip-forward-sharp"></ion-icon>
+									<span class="sr-only">forward</span>
+								</a>
+							</div>
+						</div>
+						<div class="audio-meta py-2 mx-auto text-center">
+							<span class="title">Revolution Countdown</span>
+							<span class="sub">Cinematic</span>
+						</div>
+						<div class="vrby-vol my-auto d-flex px-3 py-2">
+							<div class="vrby-mute my-auto mx-1 mx-lg-2">
+								<a href="#" class="volume high" id="volumeCtr">
+									<i data-feather="volume"></i>
+									<i data-feather="volume-1"></i>
+									<i data-feather="volume-2"></i>
+									<i data-feather="volume-x"></i>
+									<span class="sr-only">Mute</span>
+								</a>
+							</div>
+							<div class="volslider my-auto mx-1 mx-lg-2 px-4 px-lg-3">
+								<input type="range" min="1" max="100" value="80" class="slider" id="volRange">
+							</div>
+						</div>
+					</div>
+					<div>
+						<a href="#" class="download-mobile btn-yellow my-2">
+							<span>Download</span>
+							<i data-feather="download"></i>
+						</a>
 					</div>
 				</div>
 			</div>
-			<div class="dl my-auto mx-2">
+			<div class="dl my-auto d-none d-lg-flex mx-1 mx-md-2">
 				<a href="#" class="dl-link">
 					<i data-feather="download"></i>
 					<span class="sr-only">Download</span>
+				</a>
+			</div>
+			<div class="cta my-auto d-flex d-lg-none mx-1">
+				<a href="#" class="mobile-more" id="mobilepreview">
+					<i data-feather="more-vertical"></i>
 				</a>
 			</div>
 		</div>
@@ -620,20 +723,37 @@
 	<script src="js/wNumb.min.js" defer></script>
 	<!-- audio waveform -->
 	<script>
+		//https://davidwalsh.name/javascript-debounce-function
+		function debounce(func, wait, immediate) {
+			var timeout;
+			return function() {
+				var context = this, args = arguments;
+				var later = function() {
+					timeout = null;
+					if (!immediate) func.apply(context, args);
+				};
+				var callNow = immediate && !timeout;
+				clearTimeout(timeout);
+				timeout = setTimeout(later, wait);
+				if (callNow) func.apply(context, args);
+			};
+		};
+	</script>
+	<script>
 		'use strict';
 		// Create an instance
 		let wavesurfer = {};
+		let demo1 = {}, demo2 = {}, demo3 = {}, demo4 = {}, demo5 = {}, demo6  = {};
 
 		// Init & load audio file
 		document.addEventListener('DOMContentLoaded', function() {
 			// REFACTOR LOADING (TODO) also attach events for playlist
-			var demo1 = {},demo2 = {},demo3 = {},demo4 = {},demo5 = {},demo6 = {};
-			demo1 = WaveSurfer.create({container: '#minimap_sample',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
-			demo2 = WaveSurfer.create({container: '#minimap_sample1',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
-			demo3 = WaveSurfer.create({container: '#minimap_sample2',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
-			demo4 = WaveSurfer.create({container: '#minimap_sample3',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
-			demo5 = WaveSurfer.create({container: '#minimap_sample4',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
-			demo6 = WaveSurfer.create({container: '#minimap_sample5',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0});
+			demo1 = WaveSurfer.create({container: '#waveform_sample1',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
+			demo2 = WaveSurfer.create({container: '#waveform_sample',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample1',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
+			demo3 = WaveSurfer.create({container: '#waveform_sample2',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample2',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
+			demo4 = WaveSurfer.create({container: '#waveform_sample5',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample3',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
+			demo5 = WaveSurfer.create({container: '#waveform_sample3',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample4',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
+			demo6 = WaveSurfer.create({container: '#waveform_sample4',barWidth: 2,barHeight: 1.6,barGap: null,waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 60,plugins: [WaveSurfer.minimap.create({container: '#minimap_sample5',waveColor: '#ebebeb',progressColor: '#ffd300',cursorColor: '#fff0',height: 34,barHeight: 2,barWidth: 0})]});
 			demo1.load('demo-files/audio/stereo.mp3');
 			demo2.load('demo-files/audio/stereo.mp3');
 			demo3.load('demo-files/audio/stereo.mp3');
@@ -641,32 +761,50 @@
 			demo5.load('demo-files/audio/stereo.mp3');
 			demo6.load('demo-files/audio/stereo.mp3');
 
+			// N: (TODO) if you can find a way to have multiple minimaps, minimaps are responsive, you can perhaps use this instead of the actual wavesurfer
+			// responsive via resettting drawer: wavesurfer.drawBuffer();
+			// how to get container width: wavesurfer.drawer.getWidth()
 			wavesurfer = WaveSurfer.create({
-				container: '#minimap',
+				container: '#waveform',
+				barWidth: 2,
+				barHeight: 1.6,
+				barGap: null,
 				waveColor: '#ebebeb',
 				progressColor: '#ffd300',
 				cursorColor: '#fff0',
-				height: 34,
-				barHeight: 2,
-				barWidth: 0,
+				height: 60,
 				plugins: [
 					WaveSurfer.minimap.create({
-						container: '#waveform',
-						barWidth: 2,
-						barHeight: 1.6,
-						barGap: null,
+						container: '#minimap',
 						waveColor: '#ebebeb',
 						progressColor: '#ffd300',
 						cursorColor: '#fff0',
-						height: 60,
+						height: 34,
+						barHeight: 2,
+						barWidth: 0
 					})
 				]
 			});
 			wavesurfer.on('error', function(e) {
 				console.warn(e);
 			});
+			function timeFormat(flt){
+				var min = parseInt(flt/60),
+					 sec = parseInt(flt%60) < 10 ? "0"+parseInt(flt%60) : parseInt(flt%60).toString();
+				return min+":"+sec;
+			}
 			// Load audio from URL
 			wavesurfer.load('demo-files/audio/stereo.mp3');
+			wavesurfer.on("ready",function(){
+				document.getElementById("endTime").textContent = timeFormat(wavesurfer.getDuration());
+			});
+
+			// refresh width - responsive fix
+			var debouncedRefreshWave = debounce(function() {
+				// console.log("hit!");
+				wavesurfer.drawBuffer();
+			}, 300);
+			window.addEventListener('resize', debouncedRefreshWave);
 			// Play control
 			document.getElementById("mainPLayer").addEventListener("click",function(e){
 				e.preventDefault();
@@ -675,11 +813,6 @@
 			});
 			// waveform interraction
 			var playbackTimeout;
-			function timeFormat(flt){
-				var min = parseInt(flt/60),
-					 sec = parseInt(flt%60) < 10 ? "0"+parseInt(flt%60) : parseInt(flt%60).toString();
-				return min+":"+sec;
-			}
 			function refreshPie(thisPie, wavesurfObj){
 				setTimeout(function(){
 					var curTime = wavesurfObj.getCurrentTime(),
@@ -692,7 +825,7 @@
 					}else{
 						thisPie.querySelector(".timer").classList.add("first-half");
 					}
-					document.getElementById("seekTime").textContent = timeFormat(curTime+1.2); //intervals at 1 sec
+					document.getElementById("seekTime").textContent = timeFormat(curTime+0.3); //intervals at .3 sec
 				},300);
 			}
 			wavesurfer.on("interaction", function(){
@@ -805,6 +938,62 @@
 				control.classList.toggle("mute");
 				return false;
 			});
+
+			// Mobile interactions
+			// Search click
+			document.getElementById("top").querySelector(".search-btn").addEventListener("click",function(e){
+				e.preventDefault();
+				// focus to top
+				_scrollToTop(document.querySelector('.vbry-logo').getBoundingClientRect().top+document.documentElement.scrollTop,500);
+				document.getElementById("top").querySelector(".search-btn").classList.toggle("active");
+				document.getElementById("top").querySelector(".search-box").classList.toggle("active");
+				document.body.classList.toggle("overlay");
+			});
+			document.querySelector('.sfield .cancel').addEventListener("click",function(e){
+				e.preventDefault();
+				document.getElementById("top").querySelector(".search-btn").classList.remove("active");
+				document.getElementById("top").querySelector(".search-box").classList.remove("active");
+				document.body.classList.remove("overlay");
+			});
+			// filters
+			document.getElementById("top").querySelector(".filter-btn").addEventListener("click",function(e){
+				e.preventDefault();
+				// focus to top
+				_scrollToTop(document.querySelector('.vbry-logo').getBoundingClientRect().top+document.documentElement.scrollTop,200);
+				document.querySelector(".vbry-filters").classList.toggle("active");
+				document.body.classList.toggle("prevent-scroll");
+			});
+			// Player preview
+			document.getElementById("bottom").querySelector(".mobile-more").addEventListener("click",function(e){
+				e.preventDefault();
+				document.body.classList.toggle("prevent-scroll");
+				document.querySelector(".footer-wrap").classList.toggle("showing-preview");
+				document.querySelector(".track-preview").classList.toggle("active");
+				// refresh waveforms
+				wavesurfer.drawBuffer();
+			});
+			document.getElementById("closePreview").addEventListener("click",function(e){
+				e.preventDefault();
+				document.body.classList.remove("prevent-scroll");
+				document.querySelector(".footer-wrap").classList.remove("showing-preview");
+				document.querySelector(".track-preview").classList.remove("active");
+			});
+
+			// Remove loader demo
+			setTimeout(function(){
+				document.getElementById("app").classList.remove("loading");
+			},3000);
+			// refresh waveforms to remove horizontal scrolls
+			setTimeout(function(){
+				wavesurfer.drawBuffer();
+				wavesurfer.minimap._onResize();
+				demo1.minimap._onResize();
+				demo2.minimap._onResize();
+				demo3.minimap._onResize();
+				demo4.minimap._onResize();
+				demo5.minimap._onResize();
+				demo6.minimap._onResize();
+			},3600);
 		});
 	</script>
 <!-- End main content -->
